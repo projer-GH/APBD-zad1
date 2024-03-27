@@ -13,11 +13,14 @@ public class KontenerNaGaz:Kontener, IHazardNotifier
     public void PrzekazInformacje()
     {
         Console.WriteLine("Uwaga, ładunek niebezpieczny w kontenerze "+nazwa);
+        Console.WriteLine();
     }
     
     public void Oproznij()
     {
         masa = masa*0.05;
+        Console.WriteLine("Kontener opróżniony");
+        Console.WriteLine();
     }
     
 }

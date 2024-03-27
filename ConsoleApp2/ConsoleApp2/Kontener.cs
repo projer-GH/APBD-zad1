@@ -29,6 +29,8 @@ public abstract class Kontener
     public void Oproznij()
     {
         masa = 0;
+        Console.WriteLine("Kontener opróżniony");
+        Console.WriteLine();
     }
 
     public void Zaladuj(double ladunek)
@@ -47,11 +49,13 @@ public abstract class Kontener
         }
         
         Console.WriteLine("Kontener załadowany");
+        Console.WriteLine();
     }
 
     public void PrzedstawSie()
     {
         Console.WriteLine(nazwa);
+        
     }
 
     public int getNumber()

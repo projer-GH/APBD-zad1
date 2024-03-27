@@ -4,14 +4,17 @@ public class Kontenerowiec
 {
     private Kontener[] kontenery;
 
+    private string NazwaStatku;
+
     private double MaxPredkosc;
     private int MaxKontenerow;
     private double MaxWaga;
     private int at = 0;
 
 
-    public Kontenerowiec(double maxPredkosc, int maxKontenerow, double maxWaga)
+    public Kontenerowiec(string nazwaStatku,double maxPredkosc, int maxKontenerow, double maxWaga)
     {
+        NazwaStatku = nazwaStatku;
         MaxPredkosc = maxPredkosc;
         MaxKontenerow = maxKontenerow;
         MaxWaga = maxWaga;
@@ -21,13 +24,16 @@ public class Kontenerowiec
 
     public void ZaladujNaStatek(Kontener kon)
     {
-        if (MaxKontenerow < at)
+        if (MaxKontenerow <= at)
         {
             Console.WriteLine("Załadowano już maksymalną ilość kontenerów");
+        }else{
+            kontenery[at] = kon;
+                      at++;
+                      
         }
         
-        kontenery[at] = kon;
-        at++;
+        
     }
 
     public void usunKontenerZeStatku()
@@ -52,17 +58,30 @@ public class Kontenerowiec
             {
                 kontenery[i] = kontener;
                 Console.WriteLine("Zastąpiono kontenery");
+                Console.WriteLine();
             }
         } 
     }
 
     public void WypiszInformacjeOLadunku()
     {
-        for (int i = 0; i < kontenery.Length; i++)
+        Console.WriteLine(NazwaStatku+": ");
+
+        if (at == 0)
         {
-            if(kontenery[i]!=null)
-                kontenery[i].PrzedstawSie();
+            Console.WriteLine("Kontenerowiec pusty");
         }
+        else
+        {
+
+            for (int i = 0; i < kontenery.Length; i++)
+            {
+                if (kontenery[i] != null)
+                    kontenery[i].PrzedstawSie();
+            }
+        }
+        
+        Console.WriteLine();
     }
     
     
@@ -78,6 +97,47 @@ public class Kontenerowiec
             kontenery[at] = tab[i];
             at++;
         }
+    }
+
+
+    public Kontener getKontener(int num)
+    {
+        Kontener k = null;
+
+        for (int i = 0; i < kontenery.Length; i++)
+        {
+            if (kontenery[i].getNumber() == num)
+            {
+                k = kontenery[i];
+                kontenery[i] = null;
+            }
+            
+        }
+        
+        NaprawKolejnosc();
+
+        return k;
+
+    }
+
+
+    public void NaprawKolejnosc()
+    {
+        Kontener[] tmp = new Kontener[kontenery.Length];
+        int count = 0;
+        for (int i = 0; i < kontenery.Length; i++)
+        {
+            if (kontenery[i] != null)
+            {
+                tmp[count] = kontenery[i];
+                count++;
+            }
+            
+        }
+
+        at = count;
+
+        kontenery = tmp;
     }
     
     

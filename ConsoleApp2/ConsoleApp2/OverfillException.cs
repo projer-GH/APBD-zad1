@@ -3,5 +3,5 @@
 public class OverfillException : Exception
 {
     public OverfillException()
-        : base("Za duży załadunek, wybierz mniejszy") { }   
+        : base("Za duży załadunek, wybierz mniejszy"+"\n") { }   
 }

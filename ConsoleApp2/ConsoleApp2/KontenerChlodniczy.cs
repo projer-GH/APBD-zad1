@@ -12,6 +12,7 @@ public class KontenerChlodniczy: Kontener
         if (this.temperatura < this.produkt.getTemp())
         {
             Console.WriteLine("Uwaga temperatura w kontenerze jest za niska dla produktu: "+this.produkt.getNazwa());
+            Console.WriteLine();
         }
     }
 }

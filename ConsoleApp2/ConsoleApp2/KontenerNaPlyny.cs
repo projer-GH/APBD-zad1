@@ -37,10 +37,12 @@ public class KontenerNaPlyny:Kontener, IHazardNotifier
             masa = 0;
         }  
         Console.WriteLine("Kontener załadowany");
+        Console.WriteLine();
     }
 
     public void PrzekazInformacje()
     {
         Console.WriteLine("Uwaga, ładunek niebezpieczny w kontenerze "+nazwa+", maksymalna masa załadunku została zredukowana o połowe");
+        Console.WriteLine();
     }
 }
