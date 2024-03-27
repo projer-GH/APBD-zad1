@@ -10,6 +10,7 @@ public abstract class Kontener
     protected char rodzaj;
     protected double masa;
     protected string nazwa;
+    protected int nr;
     
 
     public Kontener(double masaMax, double wysokosc, double wagaWlasna, double glebokosc,char rodzaj)
@@ -20,6 +21,7 @@ public abstract class Kontener
         this.glebokosc = glebokosc;
         this.rodzaj = rodzaj;
         numer = numer + 1;
+        nr = numer;
         masa = 0;
         nazwa = "KON-" + this.rodzaj + "-" + numer;
     }
@@ -51,6 +53,10 @@ public abstract class Kontener
     {
         Console.WriteLine(nazwa);
     }
-    
+
+    public int getNumber()
+    {
+        return nr;
+    }
     
 }
